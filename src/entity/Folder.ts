@@ -4,13 +4,14 @@ import {
     Column,
     ManyToOne,
     OneToMany,
+    BaseEntity,
 } from "typeorm";
 import { User } from "./User";
 import { ChunkEmbedding } from "./ChunkEmbedding";
 import { QuestionAnswer } from "./QuestionAnwser";
 
 @Entity()
-export class Folder {
+export class Folder extends BaseEntity {
     @PrimaryGeneratedColumn("uuid")
     id: string;
 

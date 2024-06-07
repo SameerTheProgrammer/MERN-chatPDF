@@ -1,14 +1,12 @@
 import { NextFunction, Request, Response } from "express";
 import { QuestionAnswer } from "../entity/QuestionAnwser";
-import { AppDataSource } from "../config/data-source";
 import { Folder } from "../entity/Folder";
 import createHttpError from "http-errors";
 import { ICQuestionAndAnswerRequest } from "../utils/types";
-import {
-    generateGeminiEmbedding,
-    generateGeminiResponse,
-} from "../utils/gemini";
+import { generateGeminiEmbedding } from "../utils/gemini";
 import { findTop3SimilarChunks } from "../utils/utils";
+import { AppDataSource } from "./../config/data-source";
+import { generateGeminiResponse } from "./../utils/geminiResponse";
 
 const FolderRepository = AppDataSource.getRepository(Folder);
 const questionAnswerRepository = AppDataSource.getRepository(QuestionAnswer);
